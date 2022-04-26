@@ -24,8 +24,20 @@ void buzzer_set_period(short cycles) /* buzzer clock = 2MHz.  (period of 1k resu
   CCR1 = cycles >> 1;		/* one half cycle */
 }
 
+void buzzer_off(){
+  buzzer_set_period(0);
+}
 
-    
-    
-  
+void play_music(){
 
+  int music[6] = {100,200,300,400,500,600};
+  int i = 0;
+  while(i < 6){
+
+    buzzer_set_period(music[i]);
+    buzzer_off();
+
+  }
+  buzzer_off();
+
+}
